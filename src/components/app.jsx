@@ -1,7 +1,19 @@
 import React from 'react';
-import '@/styles/app.scss';
+import { connect } from 'react-redux';
 
-function App() {
+const renderBoard = (board) => {
+  return board.map((row) => {
+    return (
+      <div>
+        {row.map((num) => (
+          <span> {num} </span>
+        ))}
+      </div>
+    );
+  });
+};
+
+const App = ({ _, board }) => {
   return (
     <div className="App">
       <header className="App-header">
@@ -16,9 +28,14 @@ function App() {
         >
           Learn React
         </a>
+        {renderBoard(board)}
       </header>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => ({
+  board: state.board,
+});
+
+export default connect(mapStateToProps)(App);
