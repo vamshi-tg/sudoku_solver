@@ -1,0 +1,28 @@
+.sudoku-grid {
+  .board-container {
+    display: grid;
+    grid-template-columns: repeat(9, auto);
+    width: 60vh;
+    height: 60vh;
+    border: 3px solid yellow;
+
+    .board-item {
+      color: white;
+      border: 1px solid gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    [data-pos*='\[2,'],
+    [data-pos*='\[5,'] {
+      border-bottom: 3px solid yellow;
+    }
+
+    [data-pos*=', 2\]'],
+    [data-pos*=', 5\]'] {
+      border-right: 3px solid yellow;
+    }
+  }
+}
