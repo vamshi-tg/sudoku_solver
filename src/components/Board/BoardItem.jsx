@@ -2,24 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Popup from 'reactjs-popup';
 
-const NumberPicker = () => {
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  return numbers.map((number, index) => {
-    return (
-      <div key={index} className="cell">
-        {number}
-      </div>
-    );
-  });
-};
+import NumberPicker from '@/components/Board/NumberPicker';
 
 const BoardItem = (props) => {
-  const id = `${props.rowIndex}, ${props.colIndex}`;
+  const { rowIndex, colIndex, value } = props;
+  const id = `${rowIndex}, ${colIndex}`;
   const item = (
     <div className="board-item" data-pos={`[${id}]`}>
-      {props.value}
+      {value}
     </div>
   );
+
   return (
     <Popup trigger={item} modal closeOnDocumentClick>
       {(close) => (
@@ -28,7 +21,7 @@ const BoardItem = (props) => {
             &times;
           </a>
           <div className="container">
-            <NumberPicker />
+            <NumberPicker row={rowIndex} col={colIndex} />
           </div>
         </div>
       )}

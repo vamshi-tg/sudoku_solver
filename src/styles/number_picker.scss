@@ -1,0 +1,39 @@
+.number-picker-modal {
+  .cell {
+    color: blue;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .cell-disabled {
+    color: red;
+    pointer-events: none;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+}
+
+.board-container {
+  .popup-content {
+    width: unset !important;
+  }
+}
