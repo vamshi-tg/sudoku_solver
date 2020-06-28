@@ -43,10 +43,9 @@ const getCurrentNumbersInSubGrid = (row, col, board) => {
 
 export const getInvalidNumbersForCurrentPos = (row, col, board) => {
   const currentNumbersInRow = getCurrentNumbersInRow(row, board);
-  const currentNumbersInCol = getCurrentNumbersInCol(row, board);
+  const currentNumbersInCol = getCurrentNumbersInCol(col, board);
   const currentNumbersInSubGrid = getCurrentNumbersInSubGrid(row, col, board);
 
   // union
   return [...new Set([...currentNumbersInRow, ...currentNumbersInCol, ...currentNumbersInSubGrid])];
 };
-
