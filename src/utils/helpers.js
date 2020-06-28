@@ -30,8 +30,8 @@ const getCurrentNumbersInSubGrid = (row, col, board) => {
   const rowStart = Math.trunc(row / 3) * 3;
   const colStart = Math.trunc(col / 3) * 3;
 
-  for (let i = 0; i < rowStart + 3; i++) {
-    for (let j = 0; j < colStart + 3; j++) {
+  for (let i = rowStart; i < rowStart + 3; i++) {
+    for (let j = colStart; j < colStart + 3; j++) {
       const number = board[i][j];
       if (number != null) {
         numbers.push(number);
