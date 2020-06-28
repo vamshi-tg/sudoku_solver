@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Popup from 'reactjs-popup';
 
 import { getInvalidNumbersForCurrentPos } from '@/utils/helpers';
 
-const NumberPicker = (props) => {
+let NumberPicker = (props) => {
   const { row, col, board } = props;
   const invalidNumbers = getInvalidNumbersForCurrentPos(row, col, board);
 
@@ -29,4 +30,31 @@ const mapStateToProps = (state) => ({
   board: state.board,
 });
 
-export default connect(mapStateToProps)(NumberPicker);
+NumberPicker = connect(mapStateToProps)(NumberPicker);
+
+/*
+ * Number Picker Pop up
+ */
+export const NumberPickerPopup = (props) => {
+  const { triggerElement, ...otherProps } = props;
+  return (
+    <Popup trigger={triggerElement} modal closeOnDocumentClick>
+      {(close) => (
+        <div className="number-picker-modal">
+          <a className="close" onClick={close}>
+            &times;
+          </a>
+          <div className="container">
+            <NumberPicker {...otherProps} />
+          </div>
+        </div>
+      )}
+    </Popup>
+  );
+};
+
+NumberPickerPopup.propTypes = {
+  triggerElement: PropTypes.element,
+  row: PropTypes.number,
+  col: PropTypes.number,
+};

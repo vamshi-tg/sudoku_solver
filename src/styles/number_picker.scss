@@ -1,22 +1,4 @@
 .number-picker-modal {
-  .cell {
-    color: blue;
-    border: 1px solid gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .cell-disabled {
-    color: red;
-    pointer-events: none;
-    border: 1px solid gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   & > .close {
     cursor: pointer;
     position: absolute;
@@ -29,6 +11,33 @@
     background: #ffffff;
     border-radius: 18px;
     border: 1px solid #cfcece;
+    color: black;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 20vh;
+    height: 20vh;
+    border: 3px solid black;
+
+    .cell {
+      color: blue;
+      border: 1px solid gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .cell-disabled {
+      color: red;
+      pointer-events: none;
+      border: 1px solid gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 

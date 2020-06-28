@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Popup from 'reactjs-popup';
 
-import NumberPicker from '@/components/Board/NumberPicker';
+import { NumberPickerPopup } from '@/components/Board/NumberPicker';
 
 const BoardItem = (props) => {
   const { rowIndex, colIndex, value } = props;
@@ -13,20 +12,7 @@ const BoardItem = (props) => {
     </div>
   );
 
-  return (
-    <Popup trigger={item} modal closeOnDocumentClick>
-      {(close) => (
-        <div className="number-picker-modal">
-          <a className="close" onClick={close}>
-            &times;
-          </a>
-          <div className="container">
-            <NumberPicker row={rowIndex} col={colIndex} />
-          </div>
-        </div>
-      )}
-    </Popup>
-  );
+  return <NumberPickerPopup triggerElement={item} row={rowIndex} col={colIndex} />;
 };
 
 BoardItem.propTypes = {
