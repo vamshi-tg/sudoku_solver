@@ -4,16 +4,26 @@ import { connect } from 'react-redux';
 import Popup from 'reactjs-popup';
 
 import { getInvalidNumbersForCurrentPos } from '@/utils/helpers';
+import { updateNumberOnBoard } from '@/actions';
 
 let NumberPicker = (props) => {
-  const { row, col, board } = props;
+  const { row, col, board, dispatch } = props;
   const invalidNumbers = getInvalidNumbersForCurrentPos(row, col, board);
 
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  return numbers.map((number, index) => {
+  const _updateNumberOnBoard = (number, rowIndex, colIndex) => {
+    dispatch(updateNumberOnBoard({ rowIndex, colIndex, number }));
+  };
+
+  const _numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  return _numbers.map((number, index) => {
     const cssClasses = invalidNumbers.includes(number) ? 'cell-disabled' : 'cell';
     return (
-      <div key={index} className={cssClasses}>
+      <div
+        key={index}
+        className={cssClasses}
+        onClick={(_) => _updateNumberOnBoard(number, row, col)}
+      >
         {number}
       </div>
     );

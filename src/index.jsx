@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import App from '@/components/App';
-import { reducer } from '@/reducers/index';
+import App from '@/components/app';
+import reducer from '@/reducers/index';
 
 import '@/styles/index.scss';
 
