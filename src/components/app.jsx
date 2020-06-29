@@ -6,11 +6,11 @@ import Options from '@/components/Board/Options';
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Sudoku Solver</p>
+      <div className="app-container">
+        <header>Sudoku Solver</header>
         <Board />
         <Options />
-      </header>
+      </div>
     </div>
   );
 };

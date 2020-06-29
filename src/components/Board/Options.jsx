@@ -10,9 +10,13 @@ const Options = () => {
   const _solveBoard = () => dispatch(solveBoard());
 
   return (
-    <div>
-      <button onClick={() => _solveBoard()}>Solve</button>
-      <button onClick={() => _resetBoard()}>Reset</button>
+    <div className="options-container">
+      <div>
+        <button onClick={() => _solveBoard()}>Solve</button>
+      </div>
+      <div>
+        <button onClick={() => _resetBoard()}>Reset</button>
+      </div>
     </div>
   );
 };
