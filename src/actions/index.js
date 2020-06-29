@@ -21,3 +21,9 @@ export const resetBoard = () => {
     type: RESET_BOARD,
   };
 };
+
+export const solveBoard = () => {
+  return (dispatch) => {
+    dispatch(resetBoard());
+  }
+};

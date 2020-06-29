@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import App from '@/components/app';
@@ -9,7 +10,7 @@ import reducer from '@/reducers/index';
 
 import '@/styles/index.scss';
 
-const store = createStore(reducer, composeWithDevTools());
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 render(
   <React.StrictMode>
