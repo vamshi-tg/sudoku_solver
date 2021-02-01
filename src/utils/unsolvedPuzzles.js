@@ -19,7 +19,7 @@ export const unsolvedPuzzles = [
     [null, null, 4, null, null, null, null, 8, null],
     [null, null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null, 4],
-    [null, null, null, 5, null, null, null, null, 4],
+    [null, null, null, 5, null, null, null, null, null],
   ],
 ];
 
