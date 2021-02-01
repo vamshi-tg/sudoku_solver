@@ -7,11 +7,12 @@ import { getInvalidNumbersForCurrentPos } from '@/utils/helpers';
 import { updateNumberOnBoard } from '@/actions';
 
 let NumberPicker = (props) => {
-  const { row, col, board, dispatch } = props;
+  const { row, col, board, dispatch, close } = props;
   const invalidNumbers = getInvalidNumbersForCurrentPos(row, col, board);
 
   const _updateNumberOnBoard = (number, rowIndex, colIndex) => {
     dispatch(updateNumberOnBoard({ rowIndex, colIndex, number }));
+    close();
   };
 
   const _numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -48,14 +49,11 @@ NumberPicker = connect(mapStateToProps)(NumberPicker);
 export const NumberPickerPopup = (props) => {
   const { triggerElement, ...otherProps } = props;
   return (
-    <Popup trigger={triggerElement} modal closeOnDocumentClick>
+    <Popup trigger={triggerElement} closeOnDocumentClick>
       {(close) => (
         <div className="number-picker-modal">
-          <a className="close" onClick={close}>
-            &times;
-          </a>
           <div className="container">
-            <NumberPicker {...otherProps} />
+            <NumberPicker {...otherProps} close={close} />
           </div>
         </div>
       )}
@@ -67,4 +65,5 @@ NumberPickerPopup.propTypes = {
   triggerElement: PropTypes.element,
   row: PropTypes.number,
   col: PropTypes.number,
+  close: PropTypes.func,
 };

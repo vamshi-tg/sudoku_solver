@@ -18,9 +18,10 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     border: 3px solid black;
+    background-color: $gallery;
 
     .cell {
-      color: blue;
+      color: $ebony-clay;
       border: 1px solid gray;
       display: flex;
       width: (20vh / 3);

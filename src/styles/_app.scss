@@ -1,16 +1,52 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.app-container {
-  background-color: #282c34;
-  min-height: 100vh;
+html,
+body,
+#root,
+.app {
+    height: 100%;
+    font-size: 18px;
+}
+
+.app {
+  background-color: $gallery;
+  color: $bright-gray;
+}
+
+.app-header-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;
+  height: 8%;
+  background-color: $turquoise;
+
+  .app-header--logo {
+    font-size: 2em;
+    font-family: 'Londrina Solid', cursive;
+  }
+}
+
+.app-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92%;
+
+  .app-content {
+    height: 100%;
+    width: 80%;
+    background-color: #393e46;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }
 
 .App-link {

@@ -2,11 +2,11 @@
   .board-container {
     display: grid;
     grid-template-columns: repeat(9, auto);
-    border: 3px solid yellow;
+    border: 3px solid $turquoise;
     box-sizing: border-box;
 
     .board-item {
-      color: white;
+      color: $color-5;
       border: 1px solid gray;
       display: flex;
       height: (60vh / 9);
@@ -18,12 +18,12 @@
 
     [data-pos*='\[2,'],
     [data-pos*='\[5,'] {
-      border-bottom: 3px solid yellow;
+      border-bottom: 3px solid $turquoise;
     }
 
     [data-pos*=', 2\]'],
     [data-pos*=', 5\]'] {
-      border-right: 3px solid yellow;
+      border-right: 3px solid $turquoise;
     }
   }
 }
