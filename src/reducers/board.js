@@ -1,7 +1,7 @@
 import produce from 'immer';
 
 import { BOARD_SIZE } from '@/utils/constants';
-import { UPDATE_NUMBER_IN_BOARD, RESET_BOARD, UPDATE_BOARD } from '@/actions';
+import { UPDATE_NUMBER_IN_BOARD, RESET_BOARD, UPDATE_BOARD, GENERATE_PUZZLE } from '@/actions';
 
 const initialBoard = () => {
   let initialBoard = [];
@@ -19,6 +19,10 @@ const board = produce((draftBoard, action) => {
       return draftBoard;
     }
     case UPDATE_BOARD: {
+      draftBoard = action.payload.board;
+      return draftBoard;
+    }
+    case GENERATE_PUZZLE: {
       draftBoard = action.payload.board;
       return draftBoard;
     }

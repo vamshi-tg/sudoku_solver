@@ -4,6 +4,7 @@ export const SET_IS_SOLVING = 'set_is_solving';
 export const UPDATE_NUMBER_IN_BOARD = 'update_number_in_board';
 export const RESET_BOARD = 'reset_board';
 export const UPDATE_BOARD = 'update_board';
+export const GENERATE_PUZZLE = 'generate_puzzle';
 
 /*
  * Simple Action Creators
@@ -31,6 +32,13 @@ export const resetBoard = () => {
 export const updateBoard = (board) => {
   return {
     type: UPDATE_BOARD,
+    payload: { board },
+  };
+};
+
+export const generatePuzzle = (board) => {
+  return {
+    type: GENERATE_PUZZLE,
     payload: { board },
   };
 };
