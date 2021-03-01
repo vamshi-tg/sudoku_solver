@@ -5,13 +5,12 @@ module.exports = {
   entry: './src/index.jsx',
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'sudoku_solver.css'
-    }
-    )
+      filename: 'sudoku_solver.css',
+    }),
   ],
   module: {
     rules: [
@@ -20,8 +19,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env', "@babel/preset-react"]
-        }
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
         test: /\.scss$/,
@@ -29,24 +28,27 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1 }
+            options: { sourceMap: true, importLoaders: 1 },
           },
-          { loader: 'sass-loader', options: { sourceMap: true } }
-        ]
-      }
-    ]
+          { loader: 'sass-loader', options: { sourceMap: true } },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+    ],
   },
   resolve: {
     // Resolve in this order
     extensions: ['*', '.js', '.jsx'],
     alias: {
-      '@': path.resolve(__dirname, './src/')
-    }
+      '@': path.resolve(__dirname, './src/'),
+    },
   },
   devtool: 'cheap-module-eval-source-map',
   // changed line
   devServer: {
-    contentBase: path.join(__dirname, 'public')
-  }
+    contentBase: path.join(__dirname, 'public'),
+  },
 };
-
