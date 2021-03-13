@@ -1,0 +1,137 @@
+@import url(https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Roboto:ital,wght@0,400;1,300&display=swap);
+/* SCSS HEX */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  font-size: 18px; }
+
+.app {
+  background-color: #eeeeee;
+  color: #393e46; }
+
+.app-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8%;
+  background-color: #32e0c4; }
+  .app-header-container .app-header--logo {
+    font-size: 2em;
+    font-family: 'Londrina Solid', cursive; }
+  .app-header-container .app-header--logo-img {
+    height: 2em;
+    width: 2em;
+    margin: 0 8px; }
+
+.app-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92%; }
+  .app-content-container .app-content {
+    height: 100%;
+    width: 70%;
+    background-color: #393e46;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; }
+
+.App-link {
+  color: #61dafb; }
+
+button {
+  border: 2px solid #3498db;
+  background: #3498db;
+  color: #ffffff;
+  border-radius: 5%;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  margin: 0px 0 0.5rem 0;
+  cursor: pointer; }
+
+.sudoku-grid .board-container {
+  display: grid;
+  grid-template-columns: repeat(9, auto);
+  border: 3px solid #32e0c4;
+  box-sizing: border-box; }
+  .sudoku-grid .board-container .board-item {
+    color: #EBF2FA;
+    border: 1px solid gray;
+    display: flex;
+    height: 6.66667vh;
+    width: 6.66667vh;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; }
+  .sudoku-grid .board-container [data-pos*='[2,'],
+  .sudoku-grid .board-container [data-pos*='[5,'] {
+    border-bottom: 3px solid #32e0c4; }
+  .sudoku-grid .board-container [data-pos*=', 2]'],
+  .sudoku-grid .board-container [data-pos*=', 5]'] {
+    border-right: 3px solid #32e0c4; }
+
+.number-picker-modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+  color: black; }
+
+.number-picker-modal .container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  border: 3px solid black;
+  background-color: #eeeeee; }
+  .number-picker-modal .container .cell {
+    color: #222831;
+    border: 1px solid gray;
+    display: flex;
+    width: 6.66667vh;
+    height: 6.66667vh;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; }
+  .number-picker-modal .container .cell-disabled {
+    color: red;
+    pointer-events: none;
+    width: 6.66667vh;
+    height: 6.66667vh;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.board-container .popup-content {
+  width: unset !important; }
+
+.options-container {
+  display: flex;
+  width: 60vh;
+  justify-content: space-evenly; }
+
+body {
+  font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
+
