@@ -1,25 +1,25 @@
-FROM node:13.12.0-alpine AS builder
+# pull the official base image  
+FROM node:13.12.0-alpine as build
 
+# set your working directory  
 WORKDIR /app
 
-# install app dependencies
-COPY package.json ./
-COPY yarn.lock ./
-RUN yarn install
+# add `/app/node_modules/.bin` to $PATH  
+ENV PATH /app/node_modules/.bin:$PATH 
 
-ENV PATH="./node_modules/.bin:$PATH"
+# install application dependencies  
+COPY package.json ./  
+COPY yarn.lock ./  
+RUN yarn install   
 
 COPY . ./
 
 CMD ["yarn", "build"]
 
-# nginx state for serving content
+# build nginx image in second build stage
 FROM nginx:alpine
-# Set working directory to nginx asset directory
-WORKDIR /usr/share/nginx/html
-# Remove default nginx static assets
-RUN rm -rf ./*
-# Copy static assets from builder stage
-COPY --from=builder /app/public/ .
-# Containers run nginx with global directiv
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+COPY --from=build /app/public /usr/share/nginx.html
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
