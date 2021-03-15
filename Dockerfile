@@ -12,9 +12,8 @@ COPY package.json ./
 COPY yarn.lock ./  
 RUN yarn install   
 
-COPY . ./
-
-CMD ["yarn", "build"]
+COPY . .
+RUN yarn build
 
 # build nginx image in second build stage
 FROM nginx:alpine
