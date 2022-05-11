@@ -9,21 +9,47 @@
       color: $color-5;
       border: 1px solid gray;
       display: flex;
-      height: (60vh / 9);
-      width: (60vh / 9);
+      height: (44vh / 9);
+      width: (44vh / 9);
       justify-content: center;
       align-items: center;
       cursor: pointer;
+
+      @include respond-to('medium') {
+        height: (66vh / 9);
+        width: (66vh / 9);
+      }
+
+      @include respond-to('large') {
+        height: (66vh / 9);
+        width: (66vh / 9);
+      }
     }
 
     [data-pos*='\[2,'],
     [data-pos*='\[5,'] {
-      border-bottom: 3px solid $turquoise;
+      border-bottom: 1px solid $turquoise;
+
+      @include respond-to('medium') {
+        border-bottom: 3px solid $turquoise;
+      }
+
+      @include respond-to('large') {
+        border-bottom: 3px solid $turquoise;
+      }
     }
 
     [data-pos*=', 2\]'],
     [data-pos*=', 5\]'] {
-      border-right: 3px solid $turquoise;
+      border-right: 1px solid $turquoise;
+
+      @include respond-to('medium') {
+        border-right: 3px solid $turquoise;
+      }
+
+      @include respond-to('large') {
+        border-right: 3px solid $turquoise;
+      }
     }
   }
 }

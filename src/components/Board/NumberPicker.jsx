@@ -49,7 +49,11 @@ NumberPicker = connect(mapStateToProps)(NumberPicker);
 export const NumberPickerPopup = (props) => {
   const { triggerElement, ...otherProps } = props;
   return (
-    <Popup trigger={triggerElement} closeOnDocumentClick>
+    <Popup
+      trigger={triggerElement}
+      closeOnDocumentClick
+      position={['top center', 'bottom right', 'bottom left']}
+    >
       {(close) => (
         <div className="number-picker-modal">
           <div className="container">

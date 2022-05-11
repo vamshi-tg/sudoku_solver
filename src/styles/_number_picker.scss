@@ -1,19 +1,4 @@
 .number-picker-modal {
-  & > .close {
-    cursor: pointer;
-    position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
-    color: black;
-  }
-
   .container {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -24,22 +9,42 @@
       color: $ebony-clay;
       border: 1px solid gray;
       display: flex;
-      width: (20vh / 3);
-      height: (20vh / 3);
+      width: (15vh / 3);
+      height: (15vh / 3);
       justify-content: center;
       align-items: center;
       cursor: pointer;
+
+      @include respond-to('medium') {
+        width: (20vh / 3);
+        height: (20vh / 3);
+      }
+
+      @include respond-to('large') {
+        width: (20vh / 3);
+        height: (20vh / 3);
+      }
     }
 
     .cell-disabled {
       color: red;
       pointer-events: none;
-      width: (20vh / 3);
-      height: (20vh / 3);
+      width: (15vh / 3);
+      height: (15vh / 3);
       border: 1px solid gray;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @include respond-to('medium') {
+        width: (20vh / 3);
+        height: (20vh / 3);
+      }
+
+      @include respond-to('large') {
+        width: (20vh / 3);
+        height: (20vh / 3);
+      }
     }
   }
 }

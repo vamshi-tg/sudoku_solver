@@ -2,6 +2,10 @@
   "name": "sudoku_solver",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "14.16.1",
+    "yarn": "1.22.17"
+  },
   "dependencies": {
     "immer": "^7.0.5",
     "react": "^16.13.1",
